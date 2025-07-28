@@ -21,6 +21,9 @@ file(GLOB BSP_INCLUDE_DIRS
         "Drivers/STM32F*xx_HAL_Driver/Inc/Legacy"
         "Drivers/CMSIS/Device/ST/STM32F*xx/Include"
         "Core/Inc"
+        "Middlewares/Third_Party/FreeRTOS/Source/include"
+        "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F"
 )
 
 include_directories(. ${BSP_INCLUDE_DIRS})
