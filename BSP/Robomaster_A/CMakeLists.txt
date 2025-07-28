@@ -33,6 +33,7 @@ file(GLOB_RECURSE SOURCES ${FINEMOTE_COMMON_SOURCE_FILES}
         "Core/*.*"
         "MDK-ARM/startup_*.s"
         "./*.cpp"
+        "Middlewares/*.*"
 )
 
 file(GLOB_RECURSE EXCLUDE_SRCS

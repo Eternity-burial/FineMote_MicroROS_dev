@@ -8,6 +8,33 @@
 #include "DeviceBase.h"
 #include "Scheduler.h"
 
+
+#include "FreeRTOS.h"
+#include "task.h"
+
+
+/*****  RTOS测试 *****/
+// void LED1Task(void *pvParameters) {
+//     while (true) {
+//         HAL_GPIO_TogglePin(LED_G1_GPIO_Port, LED_G1_Pin);
+//         vTaskDelay(pdMS_TO_TICKS(300)); // Delay to prevent busy looping
+//     }
+// }
+//
+// void LED2Task(void *pvParameters) {
+//     while (true) {
+//         HAL_GPIO_TogglePin(LED_G2_GPIO_Port, LED_G2_Pin);
+//         vTaskDelay(pdMS_TO_TICKS(600)); // Delay to prevent busy looping
+//     }
+// }
+//
+// void LED3Task(void *pvParameters) {
+//     while (true) {
+//         HAL_GPIO_TogglePin(LED_G3_GPIO_Port, LED_G3_Pin);
+//         vTaskDelay(pdMS_TO_TICKS(900)); // Delay to prevent busy looping
+//     }
+// }
+
 /**
  * @brief 用户初始化
  */
@@ -17,7 +44,9 @@ extern "C" {
 #endif
 
 void Setup() {
-
+    // xTaskCreate(LED1Task, "LED1Task", 128, nullptr, tskIDLE_PRIORITY + 1, nullptr);
+    // xTaskCreate(LED2Task, "LED2Task", 128, nullptr, tskIDLE_PRIORITY + 1, nullptr);
+    // xTaskCreate(LED3Task, "LED3Task", 128, nullptr, tskIDLE_PRIORITY + 1, nullptr);
 }
 
 /**
@@ -45,6 +74,9 @@ extern "C" {
 #endif
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+    if (htim->Instance == TIM6){
+        HAL_IncTick();
+    }
     if (htim == &TIM_Control) {
         MainRTLoop();
     }

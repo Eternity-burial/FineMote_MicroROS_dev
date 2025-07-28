@@ -7,6 +7,6 @@
 #include "Scheduler.h"
 
 void UserTask1() {
-    // Do something
 }
+
 TASK_EXPORT(UserTask1);
