@@ -45,13 +45,14 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+SemaphoreHandle_t microRosTaskSemaphore = NULL; // <<<  定义全局信号量句柄
+osThreadId microRosWorkerTaskHandle; // <<<  为我们的新任务定义句柄
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-
+void MicroROSWorkerTask(void const * argument); // <<<  声明新任务函数
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -90,6 +91,8 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
+  microRosTaskSemaphore = xSemaphoreCreateBinary(); // <<<  创建二进制信号量
+
   /* USER CODE END RTOS_SEMAPHORES */
 
   /* USER CODE BEGIN RTOS_TIMERS */
@@ -107,6 +110,11 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  /* <<<  MicroROSWorkerTask 的定义和创建 >>> */
+  osThreadDef(microRosWorkerTask, MicroROSWorkerTask, osPriorityNormal, 0, 4096);
+  microRosWorkerTaskHandle = osThreadCreate(osThread(microRosWorkerTask), NULL);
+  configASSERT(microRosWorkerTaskHandle != NULL); // 加一个断言
+
   /* USER CODE END RTOS_THREADS */
 
 }
