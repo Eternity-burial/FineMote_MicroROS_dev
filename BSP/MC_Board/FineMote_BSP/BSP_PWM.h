@@ -16,8 +16,8 @@
 namespace BSP_PWM_IMPL {
 
 inline void BSP_PWM_SetDutyCycle(uint8_t ID, float _dutyCycle) {
-    uint32_t counterPeriod = __HAL_TIM_GET_AUTORELOAD(BSP_PWMList[ID].TIM_Handle);
-    __HAL_TIM_SET_COMPARE(BSP_PWMList[ID].TIM_Handle, BSP_PWMList[ID].TIM_CHANNEL, _dutyCycle * counterPeriod);
+    // uint32_t counterPeriod = __HAL_TIM_GET_AUTORELOAD(BSP_PWMList[ID].TIM_Handle);
+    // __HAL_TIM_SET_COMPARE(BSP_PWMList[ID].TIM_Handle, BSP_PWMList[ID].TIM_CHANNEL, _dutyCycle * counterPeriod);
 }
 
 inline void BSP_PWM_SetFrequency(uint8_t ID, uint32_t frequency) {

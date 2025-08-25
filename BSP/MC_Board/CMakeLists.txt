@@ -81,7 +81,9 @@ set(CMAKE_EXE_LINKER_FLAGS " \
 
 #*******************************************************************************************#
 # 生成可执行文件
-add_executable(${BOARD_NAME} ${SOURCES} ${LINKER_SCRIPT})
+add_executable(${BOARD_NAME} ${SOURCES} ${LINKER_SCRIPT}
+        ../../Devices/MicroROSDevice/MicroROSTransport.hpp
+        ../../Devices/MicroROSDevice/MicroROSTransport.cpp)
 
 #*******************************************************************************************#
 # 添加micro-ROS头文件路径

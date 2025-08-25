@@ -1,3 +1,5 @@
+// --- START OF FILE MicroROSWorkerTask.cpp ---
+
 /*******************************************************************************
  * Copyright (c) 2025.
  * IWIN-FINS Lab, Shanghai Jiao Tong University, Shanghai, China.
@@ -5,6 +7,7 @@
  ******************************************************************************/
 
 #include "MicroROSDevice.hpp"
+#include "MicroROSTransport.hpp" // 【修改】1. 包含 micro-ROS 传输层的头文件
 #include "FreeRTOS.h"
 #include "task.h"
 #include "semphr.h"
@@ -38,7 +41,13 @@ extern "C" void MicroROSWorkerTask(void *argument)
         {
             // --- One-time Initialization ---
             if (!is_initialized) {
-                // Attempt to initialize the micro-ROS device.
+                // 【修改】2. 在初始化 micro-ROS 核心之前，先设置好底层传输
+                // 2.1 初始化传输层所需的 FreeRTOS 资源 (信号量)
+                MicroROSTransport_Init();
+                // 2.2 向 micro-ROS RMW 层注册我们的自定义收发函数
+                MicroROSTransport_Register();
+
+                // 2.3 现在可以安全地尝试初始化 micro-ROS 设备了
                 if (uros_device.initialize()) {
                     is_initialized = true;
                 } else {

@@ -12,16 +12,6 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-
-/*****  RTOS测试 *****/
-void LED1Task(void *pvParameters) {
-    while (true) {
-        HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-        vTaskDelay(pdMS_TO_TICKS(300)); // Delay to prevent busy looping
-    }
-}
-
-
 /**
  * @brief 用户初始化
  */
@@ -31,7 +21,7 @@ extern "C" {
 #endif
 
 void Setup() {
-    xTaskCreate(LED1Task, "LED1Task", 128, nullptr, tskIDLE_PRIORITY + 1, nullptr);
+
 }
 
 /**
@@ -59,9 +49,12 @@ extern "C" {
 #endif
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    if (htim->Instance == TIM14){
+
+    if (htim->Instance == TIM9)
+    {
         HAL_IncTick();
     }
+
     if (htim == &TIM_Control) {
         MainRTLoop();
     }

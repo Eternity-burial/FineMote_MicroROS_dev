@@ -15,7 +15,7 @@ rcl_allocator_t MicroROSMemoryManager::rcl_allocator_;
 
 // --- Static Memory Pool and Management ---
 
-constexpr size_t MICROROS_STATIC_MEMORY_SIZE = 2 * 1024; // 15 KB
+constexpr size_t MICROROS_STATIC_MEMORY_SIZE = 20 * 1024; // 15 KB
 static uint8_t micro_ros_static_memory[MICROROS_STATIC_MEMORY_SIZE];
 static size_t current_offset = 0; // The "bump" pointer for our simple allocator
 
@@ -87,7 +87,7 @@ void MicroROSMemoryManager::initialize()
     }
 
     // Get the default allocator structure to pre-fill some fields
-    rcl_allocator_ = rcl_get_default_allocator();
+    // rcl_allocator_ = rcl_get_default_allocator();
 
     // Override the function pointers to point to our custom static implementations
     rcl_allocator_.allocate = &MicroROSMemoryManager::static_allocate;
