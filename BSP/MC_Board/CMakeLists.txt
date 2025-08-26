@@ -91,6 +91,17 @@ target_include_directories(${BOARD_NAME} PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/micro-ROS/microros_static_library/include
 )
 
+# 为 ARM/Keil 工具链添加 Microlib 支持
+# 这个标志需要传递给编译器
+target_compile_options(${BOARD_NAME} PRIVATE
+        -D__MICROLIB
+)
+
+# 这个标志需要传递给链接器
+target_link_options(${BOARD_NAME} PRIVATE
+        --library_type=microlib
+)
+
 #*******************************************************************************************#
 # 添加micro-ROS静态库
 target_link_libraries(${BOARD_NAME} PRIVATE

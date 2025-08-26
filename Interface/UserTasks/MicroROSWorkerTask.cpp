@@ -38,6 +38,7 @@ extern "C" void MicroROSWorkerTask(void *argument)
     {
         // Block indefinitely until woken up by the TaskMicroROS ISR.
         if (xSemaphoreTake(microRosTaskSemaphore, portMAX_DELAY) == pdTRUE)
+        // if (xSemaphoreTake(microRosTaskSemaphore, pdMS_TO_TICKS(1000)) == pdTRUE)
         {
             // --- One-time Initialization ---
             if (!is_initialized) {
@@ -68,7 +69,7 @@ extern "C" void MicroROSWorkerTask(void *argument)
 
                 // 2. Publish data periodically.
                 // This is a simple example of application logic.
-                uros_device.publish(counter++);
+                // uros_device.publish(counter++);
             }
         }
     }

@@ -2,20 +2,19 @@
  ******************************************************************************
  * @file    posix_stubs.c
  * @author  Your Name
- * @brief   Provides POSIX function stubs for linking pre-compiled libraries
- *          (like libmicroros.a) in a FreeRTOS environment. These stubs map
- *          POSIX calls to their equivalent FreeRTOS API calls.
+ * @brief   Provides POSIX function stubs to bridge different C library ABIs
+ *          (ARM ABI vs Newlib ABI for libmicroros.a) in a FreeRTOS environment.
  ******************************************************************************
  */
 
-#include "FreeRTOS.h"   // Must be included first
-#include "task.h"       // For vTaskDelay, xTaskGetTickCount
+#include "FreeRTOS.h"
+#include "task.h"
 
 #include <errno.h>
 #include <stdint.h>
 #include <stddef.h>
+#include <time.h>
 
-// Ensure this file is compatible with C++ linkage if included from a C++ file
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,94 +22,119 @@ extern "C" {
 // =================================================================================
 //          MANUALLY PROVIDE MISSING POSIX TYPE DEFINITIONS
 // =================================================================================
-// (These are still needed as FreeRTOS does not define them)
-
-#ifndef _SYS_TYPES_H_
-typedef long int __time_t;
-typedef long int __suseconds_t;
+#ifndef _SSIZE_T_DEFINED
+#define _SSIZE_T_DEFINED
+typedef int ssize_t;
 #endif
 
 #ifndef _TIME_H_
-typedef int clockid_t;
+#ifndef _STRUCT_TIMESPEC
+#define _STRUCT_TIMESPEC
 struct timespec {
-    __time_t tv_sec;
+    time_t   tv_sec;
     long     tv_nsec;
 };
 #endif
-
-#ifndef _UNISTD_H_
-typedef __suseconds_t useconds_t;
+typedef int clockid_t;
 #endif
 
-#ifndef _SSIZE_T_DEFINED
-#define _SSIZE_T_DEFINED
-typedef int32_t _ssize_t;
+#ifndef _UNISTD_H_
+typedef unsigned int useconds_t;
 #endif
 
 #ifndef EFAULT
 #define EFAULT 14
 #endif
-
 #ifndef ENOSYS
 #define ENOSYS 38
 #endif
 
 // =================================================================================
+//      STUBS FOR NEWLIB ABI (required by libmicroros.a)
+// =================================================================================
+// These stubs satisfy symbols like `__errno` and `_impure_ptr` which are
+// expected by libraries compiled with GCC/Newlib.
+
+// The ARM C library provides its own `__aeabi_errno_addr`. We need to provide
+// the Newlib equivalent `__errno` and make them compatible.
+
+// 1. Define the re-entrancy structure that Newlib expects.
+struct _reent {
+    int _errno;
+};
+
+// 2. Create a single, static instance of this structure.
+static struct _reent reent_instance;
+
+// 3. Define `_impure_ptr`, which Newlib uses to find the re-entrancy struct.
+//    It must point to our static instance.
+struct _reent * const _impure_ptr = &reent_instance;
+
+// 4. Define `__errno`, which is the Newlib way of getting the errno address.
+//    We return the address of the _errno field inside our static reent struct.
+//    NOTE: The name is `__errno`, NOT `__aeabi_errno_addr`.
+int *__errno(void) {
+    return &_impure_ptr->_errno;
+}
+
+
+// =================================================================================
 //                    STUB FUNCTION IMPLEMENTATIONS (FreeRTOS BASED)
 // =================================================================================
 
-/**
- * @brief A FreeRTOS-based implementation of usleep.
- *        This will suspend the calling task, not the entire system.
- */
 int usleep(useconds_t useconds)
 {
     if (useconds > 0)
     {
-        // Convert microseconds to FreeRTOS ticks.
-        // Add (portTICK_PERIOD_MS * 1000 - 1) to round up.
-        // Ensure we delay for at least 1 tick if useconds is not zero.
-        TickType_t delay_ticks = (useconds + (configTICK_RATE_HZ * 1000 - 1)) / (configTICK_RATE_HZ * 1000);
-
-        // A simpler but less accurate way for millisecond resolution:
-        // TickType_t delay_ticks = (useconds / 1000) / portTICK_PERIOD_MS;
-        // if (delay_ticks == 0 && useconds > 0) {
-        //     delay_ticks = 1;
-        // }
-
-        vTaskDelay(delay_ticks > 0 ? delay_ticks : 1);
+        const uint32_t ms = useconds / 1000;
+        TickType_t delay_ticks = pdMS_TO_TICKS(ms);
+        if (delay_ticks == 0 && useconds > 0) {
+            delay_ticks = 1;
+        }
+        vTaskDelay(delay_ticks);
     }
     return 0;
 }
 
-/**
- * @brief A FreeRTOS-based implementation of clock_gettime.
- *        Uses the FreeRTOS tick count as the time source.
- */
 int clock_gettime(clockid_t clk_id, struct timespec *tp)
 {
     (void)clk_id;
-
     if (tp == NULL) {
         errno = EFAULT;
         return -1;
     }
-
     TickType_t current_ticks = xTaskGetTickCount();
-
-    // Convert ticks to seconds and nanoseconds.
-    // portTICK_PERIOD_MS is the duration of a tick in milliseconds.
     uint32_t msec = current_ticks * portTICK_PERIOD_MS;
-
     tp->tv_sec = msec / 1000;
     tp->tv_nsec = (msec % 1000) * 1000000;
-
     return 0;
 }
 
-/**
- * @brief Stub for setenv.
- */
+
+// =================================================================================
+//          ADDITIONAL STUBS TO SATISFY OTHER LINKER ERRORS
+// =================================================================================
+
+time_t time(time_t *t)
+{
+    struct timespec ts;
+    clock_gettime(0, &ts);
+    if (t != NULL) {
+        *t = ts.tv_sec;
+    }
+    return ts.tv_sec;
+}
+
+void exit(int status)
+{
+    (void)status;
+    __asm volatile("cpsid i");
+    while(1) {}
+}
+
+void _atexit_init(void) {}
+void _atexit_mutex(void) {}
+
 int setenv(const char *name, const char *value, int overwrite)
 {
     (void)name; (void)value; (void)overwrite;
@@ -118,9 +142,6 @@ int setenv(const char *name, const char *value, int overwrite)
     return -1;
 }
 
-/**
- * @brief Stub for unsetenv.
- */
 int unsetenv(const char *name)
 {
     (void)name;
@@ -128,20 +149,16 @@ int unsetenv(const char *name)
     return -1;
 }
 
-/**
- * @brief Stub for _ctype_ array pointer.
- */
 #ifndef _ctype_
     char *__attribute__((weak)) _ctype_ = (char*)0;
 #endif
 
-/* Minimal stubs for stdio file operations if needed by the library */
-_ssize_t _write(int fd, const void *buf, size_t nbyte) {
+ssize_t _write(int fd, const void *buf, size_t nbyte) {
     (void)fd; (void)buf;
-    return (_ssize_t)nbyte;
+    return (ssize_t)nbyte;
 }
 
-_ssize_t _read(int fd, void *buf, size_t nbyte) {
+ssize_t _read(int fd, void *buf, size_t nbyte) {
     (void)fd; (void)buf; (void)nbyte;
     return 0;
 }
