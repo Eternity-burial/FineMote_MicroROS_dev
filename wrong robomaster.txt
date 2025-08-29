@@ -1,0 +1,152 @@
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -SD:\intern\FineMote
+_microros_dev3 -BD:\intern\FineMote_microros_dev3\cmake-build-debug --check-build-system CMakeFiles\Makefile.cmake 0
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f CMakeFiles\Makefile2 Robomaster_C
+make[1]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -SD:\intern\FineMote
+_microros_dev3 -BD:\intern\FineMote_microros_dev3\cmake-build-debug --check-build-system CMakeFiles\Makefile.cmake 0
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_progress_start D:\intern\FineMote_microros_dev3\cmake-build-debug\CMakeFiles 32
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f CMakeFiles\Makefile2 BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/all
+make[2]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f BSP\Robomaster_C\CMakeFiles\Robomaster_C.dir\build.make BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/depend
+make[3]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_depends "Mi
+nGW Makefiles" D:\intern\FineMote_microros_dev3 D:\intern\FineMote_microros_dev3\BSP\Robomaste
+r_C D:\intern\FineMote_microros_dev3\cmake-build-debug D:\intern\FineMote_microros_dev3\cmake-
+build-debug\BSP\Robomaster_C D:\intern\FineMote_microros_dev3\cmake-build-debug\BSP\Robomaster_C\CMakeFiles\Robomaster_C.dir\DependInfo.cmake "--color="
+Dependencies file "BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/__/__/Interface/UserTasks/Uart
+EchoTask.o.d" is newer than depends file "D:/intern/FineMote_microros_dev3/cmake-build-debug/BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target Robomaster_C
+make[3]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f BSP\Robomaster_C\CMakeFiles\Robomaster_C.dir\build.make BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/build
+make[3]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+[  0%] Building CXX object BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/__/__/Interface/UserTasks/UartEchoTask.o
+cd /d D:\intern\FineMote_microros_dev3\cmake-build-debug\BSP\Robomaster_C && D:\Keil_v5\ARM\AR
+MCLANG\bin\armclang.exe --target=arm-arm-none-eabi -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DAR
+M_MATH_ROUNDING -DSTM32F407xx -DUSE_HAL_DRIVER -D__CMAKE_APP -D__ROBOMASTER_C -ID:\intern\Fine
+Mote_microros_dev3\Interface -ID:\intern\FineMote_microros_dev3\Devices -ID:\intern\FineMote_m
+icroros_dev3\Devices\Motors -ID:\intern\FineMote_microros_dev3\Devices\RemoteControllers -ID:\
+intern\FineMote_microros_dev3\Algorithms -ID:\intern\FineMote_microros_dev3\Algorithms\Control
+ -ID:\intern\FineMote_microros_dev3\Algorithms\Matrix -ID:\intern\FineMote_microros_dev3\Algor
+ithms\Verification -ID:\intern\FineMote_microros_dev3\Services -ID:\intern\FineMote_microros_d
+ev3\Services\Bus -ID:\intern\FineMote_microros_dev3\Services\FineWarden -ID:\intern\FineMote_m
+icroros_dev3\Services\MultiMedia -ID:\intern\FineMote_microros_dev3\Components -ID:\intern\Fin
+eMote_microros_dev3\Components\Chassis -ID:\intern\FineMote_microros_dev3\Tests -ID:\intern\Fi
+neMote_microros_dev3\Tests\Peripheral -ID:\intern\FineMote_microros_dev3\Tests\ToolChain -ID:\
+intern\FineMote_microros_dev3\ThirdParty\CMSIS-DSP\Include -ID:\intern\FineMote_microros_dev3\
+ThirdParty\CMSIS-DSP\Include\dsp -ID:\intern\FineMote_microros_dev3\ThirdParty\CMSIS-DSP\Priva
+teInclude -ID:\intern\FineMote_microros_dev3\ThirdParty\etl\include -ID:\intern\FineMote_micro
+ros_dev3\BSP\Robomaster_C\. -ID:\intern\FineMote_microros_dev3\BSP\Robomaster_C\Core\Inc -ID:\
+intern\FineMote_microros_dev3\BSP\Robomaster_C\Drivers\CMSIS\Device\ST\STM32F4xx\Include -ID:\
+intern\FineMote_microros_dev3\BSP\Robomaster_C\Drivers\CMSIS\Include -ID:\intern\FineMote_micr
+oros_dev3\BSP\Robomaster_C\Drivers\STM32F4xx_HAL_Driver\Inc -ID:\intern\FineMote_microros_dev3
+\BSP\Robomaster_C\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy -ID:\intern\FineMote_microros_dev3\B
+SP\Robomaster_C\FineMote_BSP -ID:\intern\FineMote_microros_dev3\BSP\Robomaster_C\Middlewares\T
+hird_Party\FreeRTOS\Source\CMSIS_RTOS -ID:\intern\FineMote_microros_dev3\BSP\Robomaster_C\Midd
+lewares\Third_Party\FreeRTOS\Source\include -ID:\intern\FineMote_microros_dev3\BSP\Robomaster_
+C\Middlewares\Third_Party\FreeRTOS\Source\portable\RVDS\ARM_CM4F --target=arm-arm-none-eabi -m
+cpu=cortex-m4     -fno-rtti -funsigned-char -fshort-enums -fshort-wchar     -gdwarf-4 -Os -ffu
+nction-sections     -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wn
+o-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -
+Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-managemen
+t -Wno-parentheses-equality -Wno-reserved-identifier      -g -fansi-escape-codes -fcolor-diagn
+ostics -mfloat-abi=hard -mfpu=fpv4-sp-d16 -MD -MT BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir
+/__/__/Interface/UserTasks/UartEchoTask.o -MF CMakeFiles\Robomaster_C.dir\__\__\Interface\User
+Tasks\UartEchoTask.o.d -o CMakeFiles\Robomaster_C.dir\__\__\Interface\UserTasks\UartEchoTask.o -c D:\intern\FineMote_microros_dev3\Interface\UserTasks\UartEchoTask.cpp
+In file included from D:\intern\FineMote_microros_dev3\Interface\UserTasks\UartEchoTask.cpp:8:
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:92:36: error: 
+      static assertion failed due to requirement ''\x05' <= UART_BUS_MAXIMUM_COUNT': Using    
+      illegal UART BUS
+   92 |         static_assert((ID > 0) && (ID <= UART_BUS_MAXIMUM_COUNT), "Using illegal UART BUS");
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:34:26: note:                      
+      in instantiation of member function 'UART_Base<'\x05'>::UART_Base' requested here       
+   34 |         static UART_Base instance;
+      |                          ^
+D:\intern\FineMote_microros_dev3\Interface\UserTasks\UartEchoTask.cpp:24:23: note:            
+      in instantiation of member function 'UART_Base<'\x05'>::GetInstance' requested here     
+   24 |         UART_Base<5>::GetInstance().Transmit(data, size);
+      |                       ^
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:92:39: note:                      
+      expression evaluates to '5 <= 3'
+   92 |         static_assert((ID > 0) && (ID <= UART_BUS_MAXIMUM_COUNT), "Using illegal UART BUS");
+      |                                    ~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from D:\intern\FineMote_microros_dev3\Interface\UserTasks\UartEchoTask.cpp:8:
+In file included from D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:14:
+D:\intern\FineMote_microros_dev3\BSP\Robomaster_C\FineMote_BSP\BSP_UART.h:41:33: error:       
+      static assertion failed due to requirement ''\x05' < sizeof (BSP_UARTList) / sizeof     
+      (BSP_UARTList[0])': Invalid UART ID
+   41 |         static_assert(ID > 0 && ID < sizeof(BSP_UARTList) / sizeof(BSP_UARTList[0]) && BSP_UAR...
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+D:\intern\FineMote_microros_dev3\BSP\Robomaster_C\FineMote_BSP\BSP_UART.h:31:25: note:        
+      in instantiation of member function 'BSP_UART<'\x05'>::BSP_UART' requested here
+   31 |         static BSP_UART instance;
+      |                         ^
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:93:23: note:                      
+      in instantiation of member function 'BSP_UART<'\x05'>::GetInstance' requested here      
+   93 |         BSP_UART<ID>::GetInstance();
+      |                       ^
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:34:26: note:                      
+      in instantiation of member function 'UART_Base<'\x05'>::UART_Base' requested here       
+   34 |         static UART_Base instance;
+      |                          ^
+D:\intern\FineMote_microros_dev3\Interface\UserTasks\UartEchoTask.cpp:24:23: note:            
+      in instantiation of member function 'UART_Base<'\x05'>::GetInstance' requested here     
+   24 |         UART_Base<5>::GetInstance().Transmit(data, size);
+      |                       ^
+D:\intern\FineMote_microros_dev3\BSP\Robomaster_C\FineMote_BSP\BSP_UART.h:41:36: note:        
+      expression evaluates to '5 < 4'
+   41 |         static_assert(ID > 0 && ID < sizeof(BSP_UARTList) / sizeof(BSP_UARTList[0]) && BSP_UAR...
+      |                                 ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+D:\intern\FineMote_microros_dev3\BSP\Robomaster_C\FineMote_BSP\BSP_UART.h:63:26: warning:     
+      array index 5 is past the end of the array (that has type 'UART_HandleTypeDef *const[4]'
+      (aka '__UART_HandleTypeDef *const[4]')) [-Warray-bounds]
+   63 |     HAL_UART_Transmit_IT(BSP_UARTList[ID], data, size);
+      |                          ^            ~~
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:70:41: note:                      
+      in instantiation of member function 'BSP_UART<'\x05'>::Transmit' requested here
+   70 |             BSP_UART<ID>::GetInstance().Transmit(txQueue.front().first, txQueue.front(...
+      |                                         ^
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:64:13: note:                      
+      in instantiation of member function 'UART_Base<'\x05'>::TxLoader' requested here        
+   64 |             TxLoader();
+      |             ^
+D:\intern\FineMote_microros_dev3\Interface\UserTasks\UartEchoTask.cpp:24:37: note:            
+      in instantiation of member function 'UART_Base<'\x05'>::Transmit' requested here        
+   24 |         UART_Base<5>::GetInstance().Transmit(data, size);
+      |                                     ^
+D:\intern\FineMote_microros_dev3\BSP\Robomaster_C\.\Robomaster_C.h:43:1: note:                
+      array 'BSP_UARTList' declared here
+   43 | constexpr UART_HandleTypeDef *BSP_UARTList[] = {nullptr, &huart6, &huart1, &huart3};  
+      | ^
+In file included from D:\intern\FineMote_microros_dev3\Interface\UserTasks\UartEchoTask.cpp:8:
+In file included from D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:14:
+D:\intern\FineMote_microros_dev3\BSP\Robomaster_C\FineMote_BSP\BSP_UART.h:68:33: warning:     
+      array index 5 is past the end of the array (that has type 'UART_HandleTypeDef *const[4]'
+      (aka '__UART_HandleTypeDef *const[4]')) [-Warray-bounds]
+   68 |     HAL_UARTEx_ReceiveToIdle_IT(BSP_UARTList[ID], data, size);
+      |                                 ^            ~~
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:48:37: note:                      
+      in instantiation of member function 'BSP_UART<'\x05'>::Receive' requested here
+   48 |         BSP_UART<ID>::GetInstance().Receive(*bufferHead, rxLength);
+      |                                     ^
+D:\intern\FineMote_microros_dev3\Services\Bus/UART_Base.hpp:25:38: note:                      
+      in instantiation of function template specialization 'UART_Base<'\x05'>::Bind<128U>'    
+      requested here
+   25 |         UART_Base<ID>::GetInstance().Bind(*this);
+      |                                      ^
+D:\intern\FineMote_microros_dev3\Interface\UserTasks\UartEchoTask.cpp:49:35: note:            
+      in instantiation of member function 'UARTBuffer<5, 128>::UARTBuffer' requested here     
+   49 |         static UARTBuffer<5, 128> uart5_buffer(OnUart5DataReceived);
+      |                                   ^
+D:\intern\FineMote_microros_dev3\BSP\Robomaster_C\.\Robomaster_C.h:43:1: note:                
+      array 'BSP_UARTList' declared here
+   43 | constexpr UART_HandleTypeDef *BSP_UARTList[] = {nullptr, &huart6, &huart1, &huart3};  
+      | ^
+2 warnings and 2 errors generated.
+make[3]: *** [BSP\Robomaster_C\CMakeFiles\Robomaster_C.dir\build.make:987: BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/__/__/Interface/UserTasks/UartEchoTask.o] Error 1
+make[3]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+make[2]: *** [CMakeFiles\Makefile2:254: BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/all] Error 2
+make[2]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+make[1]: *** [CMakeFiles\Makefile2:261: BSP/Robomaster_C/CMakeFiles/Robomaster_C.dir/rule] Error 2
+make[1]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+make: *** [Makefile:162: Robomaster_C] Error 2

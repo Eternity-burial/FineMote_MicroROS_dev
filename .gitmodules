@@ -4,3 +4,6 @@
 [submodule "ThirdParty/etl"]
 	path = ThirdParty/etl
 	url = https://github.com/ETLCPP/etl.git
+[submodule "BSP/MC_Board/lib"]
+	path = BSP/MC_Board/lib
+	url = https://github.com/FreeRTOS/Lab-Project-FreeRTOS-POSIX.git

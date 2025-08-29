@@ -1,0 +1,48 @@
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -SD:\intern\FineMote
+_microros_dev3 -BD:\intern\FineMote_microros_dev3\cmake-build-debug --check-build-system CMakeFiles\Makefile.cmake 0
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f CMakeFiles\Makefile2 MC_Board
+make[1]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -SD:\intern\FineMote
+_microros_dev3 -BD:\intern\FineMote_microros_dev3\cmake-build-debug --check-build-system CMakeFiles\Makefile.cmake 0
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_progress_start D:\intern\FineMote_microros_dev3\cmake-build-debug\CMakeFiles 36
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f CMakeFiles\Makefile2 BSP/MC_Board/CMakeFiles/MC_Board.dir/all
+make[2]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f BSP\MC_Board\CMakeFiles\freertos_posix.dir\build.make BSP/MC_Board/CMakeFiles/freertos_posix.dir/depend
+make[3]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_depends "Mi
+nGW Makefiles" D:\intern\FineMote_microros_dev3 D:\intern\FineMote_microros_dev3\BSP\MC_Board 
+D:\intern\FineMote_microros_dev3\cmake-build-debug D:\intern\FineMote_microros_dev3\cmake-buil
+d-debug\BSP\MC_Board D:\intern\FineMote_microros_dev3\cmake-build-debug\BSP\MC_Board\CMakeFiles\freertos_posix.dir\DependInfo.cmake "--color="
+make[3]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f BSP\MC_Board\CMakeFiles\freertos_posix.dir\build.make BSP/MC_Board/CMakeFiles/freertos_posix.dir/build
+make[3]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+make[3]: Nothing to be done for 'BSP/MC_Board/CMakeFiles/freertos_posix.dir/build'.
+make[3]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+[ 11%] Built target freertos_posix
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f BSP\MC_Board\CMakeFiles\clean_lib.dir\build.make BSP/MC_Board/CMakeFiles/clean_lib.dir/depend
+make[3]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_depends "Mi
+nGW Makefiles" D:\intern\FineMote_microros_dev3 D:\intern\FineMote_microros_dev3\BSP\MC_Board 
+D:\intern\FineMote_microros_dev3\cmake-build-debug D:\intern\FineMote_microros_dev3\cmake-buil
+d-debug\BSP\MC_Board D:\intern\FineMote_microros_dev3\cmake-build-debug\BSP\MC_Board\CMakeFiles\clean_lib.dir\DependInfo.cmake "--color="
+make[3]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f BSP\MC_Board\CMakeFiles\clean_lib.dir\build.make BSP/MC_Board/CMakeFiles/clean_lib.dir/build
+make[3]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+make[3]: Nothing to be done for 'BSP/MC_Board/CMakeFiles/clean_lib.dir/build'.
+make[3]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+[ 97%] Built target clean_lib
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f BSP\MC_Board\CMakeFiles\MC_Board.dir\build.make BSP/MC_Board/CMakeFiles/MC_Board.dir/depend
+make[3]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_depends "Mi
+nGW Makefiles" D:\intern\FineMote_microros_dev3 D:\intern\FineMote_microros_dev3\BSP\MC_Board 
+D:\intern\FineMote_microros_dev3\cmake-build-debug D:\intern\FineMote_microros_dev3\cmake-buil
+d-debug\BSP\MC_Board D:\intern\FineMote_microros_dev3\cmake-build-debug\BSP\MC_Board\CMakeFiles\MC_Board.dir\DependInfo.cmake "--color="
+make[3]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+D:/Program Files/w64devkit-1.23.0/w64devkit/bin/make.exe  -f BSP\MC_Board\CMakeFiles\MC_Board.dir\build.make BSP/MC_Board/CMakeFiles/MC_Board.dir/build
+make[3]: Entering directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+make[3]: Nothing to be done for 'BSP/MC_Board/CMakeFiles/MC_Board.dir/build'.
+make[3]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+[100%] Built target MC_Board
+make[2]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'
+"D:\Program Files\JetBrains\CLion 2025.2\bin\cmake\win\x64\bin\cmake.exe" -E cmake_progress_start D:\intern\FineMote_microros_dev3\cmake-build-debug\CMakeFiles 0
+make[1]: Leaving directory 'D:/intern/FineMote_microros_dev3/cmake-build-debug'

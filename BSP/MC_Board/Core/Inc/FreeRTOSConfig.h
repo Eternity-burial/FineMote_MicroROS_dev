@@ -66,9 +66,12 @@
 #define configMINIMAL_STACK_SIZE                 ((uint16_t)128)
 #define configTOTAL_HEAP_SIZE                    ((size_t)46080)
 #define configMAX_TASK_NAME_LEN                  ( 16 )
+#define configUSE_TRACE_FACILITY                 1
 #define configUSE_16_BIT_TICKS                   0
 #define configUSE_MUTEXES                        1
 #define configQUEUE_REGISTRY_SIZE                8
+#define configUSE_RECURSIVE_MUTEXES              1
+#define configUSE_COUNTING_SEMAPHORES            1
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION  1
 /* USER CODE BEGIN MESSAGE_BUFFER_LENGTH_TYPE */
 /* Defaults to size_t for backward compatibility, but can be changed
@@ -80,6 +83,18 @@
 #define configUSE_CO_ROUTINES                    0
 #define configMAX_CO_ROUTINE_PRIORITIES          ( 2 )
 
+
+/* >>>>>>>>>> BEGIN: ADDED FOR FreeRTOS-Plus-POSIX COMPATIBILITY <<<<<<<<<< */
+
+/* Software timer definitions. */
+#define configUSE_TIMERS                         1
+#define configTIMER_TASK_PRIORITY                ( 2 ) /* Must be less than configMAX_PRIORITIES */
+#define configTIMER_QUEUE_LENGTH                 10
+#define configTIMER_TASK_STACK_DEPTH             256
+
+/* >>>>>>>>>> END: ADDED FOR FreeRTOS-Plus-POSIX COMPATIBILITY <<<<<<<<<< */
+
+
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */
 #define INCLUDE_vTaskPrioritySet             1
@@ -90,6 +105,17 @@ to exclude the API function. */
 #define INCLUDE_vTaskDelayUntil              0
 #define INCLUDE_vTaskDelay                   1
 #define INCLUDE_xTaskGetSchedulerState       1
+
+/* >>>>>>>>>> BEGIN: ADDED FOR FreeRTOS-Plus-POSIX COMPATIBILITY <<<<<<<<<< */
+
+#define INCLUDE_xTimerPendFunctionCall       1
+#define INCLUDE_xQueueGetMutexHolder         1
+#define INCLUDE_uxTaskGetStackHighWaterMark  1
+#define INCLUDE_eTaskGetState                1
+#define INCLUDE_xTaskGetHandle               1
+
+/* >>>>>>>>>> END: ADDED FOR FreeRTOS-Plus-POSIX COMPATIBILITY <<<<<<<<<< */
+
 
 /* Cortex-M specific definitions. */
 #ifdef __NVIC_PRIO_BITS
@@ -134,6 +160,11 @@ standard names. */
 
 /* USER CODE BEGIN Defines */
 /* Section where parameter definitions can be added (for instance, to override default ones in FreeRTOS.h) */
+#define configUSE_POSIX_ERRNO                   1
+#define configUSE_STATS_FORMATTING_FUNCTIONS    1
+#define configUSE_APPLICATION_TASK_TAG          1
+#define INCLUDE_xTaskGetHandle                  1
+/* Note: INCLUDE_xTaskGetHandle was moved up to group with other INCLUDEs */
 /* USER CODE END Defines */
 
 #endif /* FREERTOS_CONFIG_H */
